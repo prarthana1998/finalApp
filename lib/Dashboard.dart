@@ -1,60 +1,58 @@
-
-
 import 'package:flutter/material.dart';
-import'pages/about-page.dart';
-import'login/login_firstpage.dart';
-
+import 'pages/about-page.dart';
+import 'login/login_firstpage.dart';
+import 'feedback/main.dart';
 
 class Dashboard extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer:  new Drawer(
-        child:Container(
-          color: Colors.white,
-        child: ListView(
-          padding: EdgeInsets.zero,
+        endDrawer: new Drawer(
+          child: Container(
+            color: Colors.white,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage("assets/etil.jpeg"),
 
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/etil.jpeg"),
-
-
-                   //   fit: BoxFit.cover
-                  )
-              ),
-              child: Text(""),
-            ),
-            ListTile(
-              title: Text("About Us"),
+                    //   fit: BoxFit.cover
+                  )),
+                  child: Text(""),
+                ),
+                ListTile(
+                    title: Text("About Us"),
 //              onTap: (){
 //                Navigator.of(context).pop();
 //              },
-    onTap: () {
-    Navigator.push(
-    context, MaterialPageRoute(builder: (context) => MyHomePage())
-    );}
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyHomePage()));
+                    }),
+                ListTile(
+                  title: Text("Feedback"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyFeedback()));
+                  },
+                )
+              ],
             ),
-            ListTile(
-              title: Text("Feedback"),
-              onTap: (){
-                Navigator.of(context).pop();
-              },
-            )
-          ],
+          ),
         ),
-        ),
-),
         appBar: AppBar(
           title: new Text('ETI Labs'),
           leading: IconButton(
-            icon: Image.asset('assets/etil.jpeg'),),
+            icon: Image.asset('assets/etil.jpeg'),
+          ),
           backgroundColor: Colors.black87,
           // centerTitle: true,
-
         ),
 //drawer: new Drawer(
 //  child:ListView(
@@ -67,34 +65,32 @@ class Dashboard extends StatelessWidget {
 //  )
 //),
         body: new Container(
-          //children: <Widget>[
+            //children: <Widget>[
 
             child: new Center(
-              child: new Column(
-
+          child: new Column(
+            children: <Widget>[
+              buildButtonContainer2(context), //about
+              new Row(
                 children: <Widget>[
-                  buildButtonContainer2(context),     //about
-                  new Row(
-                    children: <Widget>[
-                      buildButtonContainer3(context),//MQTT
-                      buildButtonContainer6(context),//HTTP
-                        //cloud computing
-                    ],
-                  ),
-                  new Row(
-                    children: <Widget>[
-                      buildButtonContainer5(context),//Bluetooth
-                      buildButtonContainer4(context), //cloud computing
-                    //wifi
-                    ],
-                  ),
-                //  buildButtonContainer7(context),        //feedback
-                  SizedBox(height: 20),
-                  //   )
+                  buildButtonContainer3(context), //MQTT
+                  buildButtonContainer6(context), //HTTP
+                  //cloud computing
                 ],
               ),
-            ))
-    );
+              new Row(
+                children: <Widget>[
+                  buildButtonContainer5(context), //Bluetooth
+                  buildButtonContainer4(context), //cloud computing
+                  //wifi
+                ],
+              ),
+              //  buildButtonContainer7(context),        //feedback
+              SizedBox(height: 20),
+              //   )
+            ],
+          ),
+        )));
   }
 
   Widget buildButtonContainer2(BuildContext context) {
@@ -103,14 +99,12 @@ class Dashboard extends StatelessWidget {
       width: 500.0,
       padding: EdgeInsets.all(15),
       child: RaisedButton(
-
         color: Colors.blue,
         textColor: Colors.white,
         splashColor: Colors.blue[100],
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MyHomePage())
-          );
+              context, MaterialPageRoute(builder: (context) => MyHomePage()));
         },
         // padding:EdgeInsets.only(left:30),
         child: Text(
@@ -130,14 +124,12 @@ class Dashboard extends StatelessWidget {
       padding: EdgeInsets.all(15),
       // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
       child: RaisedButton(
-
         color: Colors.blue,
         textColor: Colors.white,
         splashColor: Colors.blue[100],
         onPressed: () {
- Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage())
-          );
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
         },
         // padding:EdgeInsets.only(left:30),
         child: Text(
@@ -157,7 +149,6 @@ class Dashboard extends StatelessWidget {
       padding: EdgeInsets.all(15),
       // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
       child: RaisedButton(
-
         color: Colors.blue,
         textColor: Colors.white,
         splashColor: Colors.blue[100],
@@ -168,9 +159,8 @@ class Dashboard extends StatelessWidget {
           ),
         ),
         onPressed: () {
-           Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage())
-          );
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
         },
       ),
     );
@@ -183,14 +173,12 @@ class Dashboard extends StatelessWidget {
       padding: EdgeInsets.all(15),
       // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
       child: RaisedButton(
-
         color: Colors.blue,
         textColor: Colors.white,
         splashColor: Colors.blue[100],
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage())
-          );
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
         },
         child: Text(
           'Bluetooth',
@@ -209,14 +197,12 @@ class Dashboard extends StatelessWidget {
       padding: EdgeInsets.all(15),
       // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
       child: RaisedButton(
-
         color: Colors.blue,
         textColor: Colors.white,
         splashColor: Colors.blue,
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage())
-          );
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
         },
         child: Text(
           'HTTP Protocol',

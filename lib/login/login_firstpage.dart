@@ -5,6 +5,7 @@ import 'homePage.dart';
 import 'register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dashboard/thingspeak/main.dart';
 //import 'auth.dart'
 import 'auth.dart';
 
@@ -280,13 +281,9 @@ class _LoginPageState extends State<LoginPage> {
                   .document(currentUser.user.uid)
                   .get()
                   .then((DocumentSnapshot result) =>
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HomePage(
-                            uid: currentUser.user.uid,
-                          ))))
-
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => MyThingspeak())
+                  ))
                   .catchError((err) => print(err)))
                   .catchError((err) => print(err));
 //                showDialog(

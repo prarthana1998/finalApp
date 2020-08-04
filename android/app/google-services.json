@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "578283188805",
-    "firebase_url": "https://tester-8f704.firebaseio.com",
-    "project_id": "tester-8f704",
-    "storage_bucket": "tester-8f704.appspot.com"
+    "project_number": "958403404406",
+    "firebase_url": "https://eti-labs-app.firebaseio.com",
+    "project_id": "eti-labs-app",
+    "storage_bucket": "eti-labs-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:578283188805:android:f0a850ae526739690ea92c",
+        "mobilesdk_app_id": "1:958403404406:android:0c75236c6e3cdf6139b557",
         "android_client_info": {
           "package_name": "com.example.dashboard"
         }
       },
       "oauth_client": [
         {
-          "client_id": "578283188805-843mbh4e10uo83iqsig85iaa6of5kprg.apps.googleusercontent.com",
+          "client_id": "958403404406-ujnl32n6id5sim81cg8g5b3d8jv7fqvl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDOe0beASshhB6TSgwVXDvSet-1YuV-ukc"
+          "current_key": "AIzaSyA6461u9MaHJrM1wsWNt5iPb3ZgX7-WNJc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "578283188805-843mbh4e10uo83iqsig85iaa6of5kprg.apps.googleusercontent.com",
+              "client_id": "958403404406-ujnl32n6id5sim81cg8g5b3d8jv7fqvl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
