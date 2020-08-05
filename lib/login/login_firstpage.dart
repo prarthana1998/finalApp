@@ -8,11 +8,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'auth.dart'
 import 'package:dashboard/thingspeak/main.dart';
 import 'auth.dart';
+import 'package:dashboard/mqtt_files/main.dart';
 
 
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key key}) : super(key: key);
+  LoginPage({Key key, this.title}) : super(key: key);
+    final String title;
+
   //bool Loading false;
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -332,9 +335,23 @@ class _LoginPageState extends State<LoginPage> {
                 }
                 );
               }
-              debugPrint('logged in');
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MyThingspeak()));
+               else if (widget.title == 'mqtt') {
+                debugPrint('logged in');
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) =>
+                    MqttApp())
+                );
+              }
+              else
+                //   if(widget.title == 'http'){}   Can be used for further connecting other pages
+                {
+                debugPrint('logged in');
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) =>
+                 MyThingspeak()
+               )
+                );
+              }             
             }
           },
 
