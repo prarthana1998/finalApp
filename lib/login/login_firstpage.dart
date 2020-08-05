@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 fontSize: 32.0,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF21BFBD),
+                color: Colors.blue,
               ),
             ),
 
@@ -143,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'Register',
                         style: TextStyle(
-                            color: Color(0xFF21BFBD),
+                            color: Colors.blue,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline),
@@ -242,8 +242,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(23.0),
         gradient: LinearGradient(
             colors: [
-              Color(0xFF21BFBD),
-              Color(0xFF7A9BEE)
+              Colors.blue,
+              Colors.blue
             ],
             begin: Alignment.centerRight,
             end: Alignment.centerLeft
