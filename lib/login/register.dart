@@ -98,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).primaryColor
+                                color: Colors.blue
                         ),
                       ),
                       SizedBox(height:20),
