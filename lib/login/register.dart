@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController confirmPwdInputController;
   TextEditingController nameInputController;
   TextEditingController pnoInputController;
- // TextEditingController branchInputController;
+  // TextEditingController branchInputController;
 
   @override
   initState() {
@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
     pwdInputController = new TextEditingController();
     confirmPwdInputController = new TextEditingController();
     nameInputController=new TextEditingController();
-        pnoInputController=new TextEditingController();
+    pnoInputController=new TextEditingController();
     super.initState();
   }
 
@@ -68,7 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   String pnoValidator(String value) {
 
-   // RegExp regex = new RegExp(pattern);
+    // RegExp regex = new RegExp(pattern);
     if (value.length<10||value.length>10) {
       return 'Enter a valid Phone Number';
     } else {
@@ -84,8 +84,8 @@ class _RegisterPageState extends State<RegisterPage> {
     return  Scaffold(
         resizeToAvoidBottomPadding: true,
         body: Container(
-                //padding: EdgeInsets.only(top: 15.0, left: 40.0, right: 25.0),
-padding:EdgeInsets.all(40.0),
+          //padding: EdgeInsets.only(top: 15.0, left: 40.0, right: 25.0),
+            padding:EdgeInsets.all(40.0),
             child: SingleChildScrollView(
 
                 child: Form(
@@ -95,11 +95,11 @@ padding:EdgeInsets.all(40.0),
                       SizedBox(height:40,width:40),
                       Text(
                         'REGISTER',
-                  style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor
-                    ),
+                        style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor
+                        ),
                       ),
                       SizedBox(height:20),
                       TextFormField(
@@ -117,7 +117,7 @@ padding:EdgeInsets.all(40.0),
                         //   keyboardType: TextInputType.name,
                         validator: nameValidator,
 
-                        ),
+                      ),
                       SizedBox(height:20),
                       TextFormField(
                         decoration: InputDecoration(
@@ -133,7 +133,7 @@ padding:EdgeInsets.all(40.0),
                         controller: pnoInputController,
                         //  keyboardType: TextInputType.emailAddress,
                         validator: pnoValidator,
-                        ),
+                      ),
                       SizedBox(height:20),
 
 
@@ -152,7 +152,7 @@ padding:EdgeInsets.all(40.0),
                         controller: emailInputController,
                         keyboardType: TextInputType.emailAddress,
                         validator: emailValidator,
-                        ),
+                      ),
 
                       SizedBox(height:20),
 //                      TextFormField(
@@ -176,8 +176,8 @@ padding:EdgeInsets.all(40.0),
                         controller: pwdInputController,
                         obscureText: true,
                         validator: pwdValidator,
-                        ),
-                        SizedBox(height:20),
+                      ),
+                      SizedBox(height:20),
                       TextFormField(
                         decoration: InputDecoration(
                             labelText: 'Confirm Password',
@@ -192,7 +192,7 @@ padding:EdgeInsets.all(40.0),
                         controller: confirmPwdInputController,
                         obscureText: true,
                         validator:confirmPwdValidator,
-                        ),
+                      ),
                       //  SizedBox(height:20),
                       SizedBox(height:40),
 //                      RaisedButton(
@@ -205,21 +205,21 @@ padding:EdgeInsets.all(40.0),
 //                            ),
 //                      //  color: Theme.of(context).primaryColor,
 //                        //textColor: Colors.white,
-                  RaisedButton(
-                      color: Color(0xFF21BFBD),
-                      textColor: Colors.white,
-                      child: Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Text("Register", style: TextStyle(fontSize: 24.0)),
+                      RaisedButton(
+                        color: Color(0xFF21BFBD),
+                        textColor: Colors.white,
+                        child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text("Register", style: TextStyle(fontSize: 24.0)),
 
-                            ],
+                              ],
                             )),
 
 
-                  onPressed: () {
+                        onPressed: () {
                           if (_registerFormKey.currentState.validate()) {
                             if (pwdInputController.text ==
                                 confirmPwdInputController.text) {
@@ -227,35 +227,35 @@ padding:EdgeInsets.all(40.0),
                               FirebaseAuth.instance
 
                                   .createUserWithEmailAndPassword(
-                                  email: emailInputController.text,
-                                  password: pwdInputController.text,
-                                 // name:nameInputController.text,
-                                 // name:nameController.text
-                                   )
+                                email: emailInputController.text,
+                                password: pwdInputController.text,
+                                // name:nameInputController.text,
+                                // name:nameController.text
+                              )
                                   .then((currentUser) => Firestore.instance
                                   .collection("data")
                                   .document(currentUser.user.uid)
                                   .setData({
-                                             "email": emailInputController.text,
+                                "email": emailInputController.text,
                                 "name":nameInputController.text,
 
                                 "pno":pnoInputController.text,
-                                 
-                                           })
+
+                              })
 //                                  .setData({
 //                                          // "email": emailInputController.text;
 //                                           "name":nameController.text
 //                                           })
                                   .then((result) => {
-                                Navigator.pushAndRemoveUntil(
-                                    context,
-                                    // ignore: sdk_version_set_literal
-                                    MaterialPageRoute(
-                                        builder: (context) => HomePage(
-
-                                          uid: currentUser.user.uid, // ignore: sdk_version_set_literal
-                                          )),
-                                        (_) => false),
+//                                Navigator.pushAndRemoveUntil(
+//                                    context,
+//                                    // ignore: sdk_version_set_literal
+//                                    MaterialPageRoute(
+//                                        builder: (context) => HomePage(
+//
+//                                          uid: currentUser.user.uid, // ignore: sdk_version_set_literal
+//                                          )),
+//                                        (_) => false),
                                 emailInputController.clear(),
                                 pwdInputController.clear(),
                                 confirmPwdInputController.clear(),
@@ -270,7 +270,7 @@ padding:EdgeInsets.all(40.0),
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      title: Text(""),
+                                      title: Text("Alert"),
                                       content: Text("Registered Successfully!"),
                                       actions: <Widget>[
                                         FlatButton(
@@ -295,25 +295,25 @@ padding:EdgeInsets.all(40.0),
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                           },
-                                          )
+                                        )
                                       ],
-                                      );
+                                    );
                                   });
                             }
                           }
                         },
-                        ),
+                      ),
                       Text("Already have an account?"),
                       FlatButton(
                         child: Text("Login here!"),
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        ),
+                      ),
                       SizedBox(height:100),
                     ],
-                    ),
-                  )))
-      );
+                  ),
+                )))
+    );
   }
 }

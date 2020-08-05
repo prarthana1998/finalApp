@@ -5,8 +5,8 @@ import 'homePage.dart';
 import 'register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dashboard/thingspeak/main.dart';
 //import 'auth.dart'
+import 'package:dashboard/thingspeak/main.dart';
 import 'auth.dart';
 
 
@@ -254,10 +254,8 @@ class _LoginPageState extends State<LoginPage> {
           onTap: () async {
 
             if (_loginFormKey1.currentState.validate()&&_loginFormKey2.currentState.validate()) {
-
-
 //              //  _createUser(email: email, pw: password);
-              //setState(() =>loading=true);
+//              setState(() =>loading=true);
 //               showDialog(
 //                   context: context,
 //                   builder: (BuildContext context) {
@@ -274,21 +272,22 @@ class _LoginPageState extends State<LoginPage> {
 //                       ],
 //                     );
 //                   });
-              FirebaseAuth.instance
-                  .signInWithEmailAndPassword( email: emailInputController.text,password: pwdInputController.text)
-                  .then((currentUser) => Firestore.instance
-                  .collection("locs")
-                  .document(currentUser.user.uid)
-                  .get()
-                  .then((DocumentSnapshot result) =>
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HomePage(
-                            uid: currentUser.user.uid,
-                          ))))
-                  .catchError((err) => print(err)))
-                  .catchError((err) => print(err));
+//              FirebaseAuth.instance
+//                  .signInWithEmailAndPassword( email: emailInputController.text,password: pwdInputController.text)
+//                  .then((currentUser) => Firestore.instance
+//                  .collection("locs")
+//                  .document(currentUser.user.uid)
+//                  .get()
+//                  .then((DocumentSnapshot result) =>
+//                  Navigator.pushReplacement(
+//                      context,
+//                      MaterialPageRoute(
+//                          builder: (context) => HomePage(
+//                            uid: currentUser.user.uid,
+//                          ))))
+//
+//                  .catchError((err) => print(err)))
+//                  .catchError((err) => print(err));
 //                showDialog(
 //                   context: context,
 //                   builder: (BuildContext context) {
@@ -307,31 +306,36 @@ class _LoginPageState extends State<LoginPage> {
 //                   });
 
 
-
-              dynamic result = await _auth.signInWithEmailAndPassword(email, password);
-              if(result == null) {
+              dynamic result = await _auth.signInWithEmailAndPassword(
+                  email, password);
+              if (result == null) {
                 setState(() {
                   // loading=false;
                   error = 'Could not sign in with those credentials';
-//        showDialog(
-//                   context: context,
-//                   builder: (BuildContext context) {
-//                     return AlertDialog(
-//                       title: Text("Alert"),
-//                       content: Text("hhhhh"),
-//                       actions: <Widget>[
-//                         FlatButton(
-//                           child: Text("OK"),
-//                           onPressed: () {
-//                             Navigator.of(context).pop();
-//                           },
-//                         )
-//                       ],
-//                     );
-//                   });
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("Alert"),
+                          content: Text(
+                              "Could not sign in with those credentials"),
+                          actions: <Widget>[
+                            FlatButton(
+                              child: Text("OK"),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            )
+                          ],
+                        );
+                      });
                 }
                 );
-              }         }
+              }
+              debugPrint('logged in');
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyThingspeak()));
+            }
           },
 
           child: Text(
@@ -354,6 +358,3 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 }
-
-
-
