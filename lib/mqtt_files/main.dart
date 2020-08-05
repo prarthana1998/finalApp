@@ -15,6 +15,7 @@ class MqttApp extends StatelessWidget {
      */
 
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
