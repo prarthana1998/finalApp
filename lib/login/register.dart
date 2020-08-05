@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
 //                      //  color: Theme.of(context).primaryColor,
 //                        //textColor: Colors.white,
                       RaisedButton(
-                        color: Color(0xFF21BFBD),
+                        color: Colors.blue,
                         textColor: Colors.white,
                         child: Padding(
                             padding: EdgeInsets.all(10.0),
