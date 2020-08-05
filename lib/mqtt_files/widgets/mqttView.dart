@@ -83,7 +83,7 @@ class _MQTTViewState extends State<MQTTView> {
   }
 
   Widget _buildEditableColumn() {
-    return Padding(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
