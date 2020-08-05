@@ -257,7 +257,7 @@ class _LoginPageState extends State<LoginPage> {
 
 
 //              //  _createUser(email: email, pw: password);
-              setState(() =>loading=true);
+              //setState(() =>loading=true);
 //               showDialog(
 //                   context: context,
 //                   builder: (BuildContext context) {
@@ -281,9 +281,12 @@ class _LoginPageState extends State<LoginPage> {
                   .document(currentUser.user.uid)
                   .get()
                   .then((DocumentSnapshot result) =>
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => MyThingspeak())
-                  ))
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomePage(
+                            uid: currentUser.user.uid,
+                          ))))
                   .catchError((err) => print(err)))
                   .catchError((err) => print(err));
 //                showDialog(
