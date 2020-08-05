@@ -129,7 +129,7 @@ class Dashboard extends StatelessWidget {
         splashColor: Colors.blue[100],
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage()));
+              context, MaterialPageRoute(builder: (context) => LoginPage(title: 'mqtt')));
         },
         // padding:EdgeInsets.only(left:30),
         child: Text(
@@ -160,7 +160,7 @@ class Dashboard extends StatelessWidget {
         ),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage()));
+              context, MaterialPageRoute(builder: (context) => LoginPage(title: 'thing')));
         },
       ),
     );
@@ -178,7 +178,7 @@ class Dashboard extends StatelessWidget {
         splashColor: Colors.blue[100],
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage()));
+              context, MaterialPageRoute(builder: (context) => LoginPage(title: 'bluetooth')));
         },
         child: Text(
           'Bluetooth',
@@ -202,7 +202,7 @@ class Dashboard extends StatelessWidget {
         splashColor: Colors.blue,
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage()));
+              context, MaterialPageRoute(builder: (context) => LoginPage(title: 'http')));
         },
         child: Text(
           'HTTP Protocol',
